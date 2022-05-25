@@ -1,10 +1,13 @@
 const mqtt = require('mqtt')
+const fs = require('fs')
+const path = require('path')
 
 class MqttPubSub {
 
-    constructor(hostname='localhost', username='guest', password='guest', routingKeys=[''], vhost=null, ssl=false, debug=false) {
+    constructor(hostname='localhost', username='guest', password='guest', routingKeys=[''], vhost=null, ssl=false, debug=false, caFile = null) {
+        this.caFile = caFile ? caFile : fs.readFileSync(path.join(path.normalize(__dirname), '../../cacert.pem'))
         const config = { host: hostname, ssl: ssl }
-        const options = { username: vhost + ':' + username, password: password }
+        const options = { username: vhost + ':' + username, password: password, ca: [ caFile ] }
         this.protocol = config.ssl ? 'mqtts' : 'mqtt'
         this.host = config.host ? config.host : 'localhost'
         this.port = config.port ? config.port : ( config.ssl ? '8883' : '1883')
