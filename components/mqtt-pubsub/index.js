@@ -7,7 +7,8 @@ class MqttPubSub {
     constructor(hostname='localhost', username='guest', password='guest', routingKeys=[''], vhost=null, ssl=false, debug=false, caFile = null) {
         this.caFile = caFile ? caFile : fs.readFileSync(path.join(path.normalize(__dirname), '../../cacert.pem'))
         const config = { host: hostname, ssl: ssl }
-        const options = { username: vhost + ':' + username, password: password, ca: [ caFile ] }
+        const options = { username: vhost + ':' + username, password: password }
+        if(this.caFile != null) options["ca"] = [ this.caFile ]
         this.protocol = config.ssl ? 'mqtts' : 'mqtt'
         this.host = config.host ? config.host : 'localhost'
         this.port = config.port ? config.port : ( config.ssl ? '8883' : '1883')
