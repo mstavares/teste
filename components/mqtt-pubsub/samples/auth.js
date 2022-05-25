@@ -4,10 +4,7 @@ const username = 'username'
 const password = 'password'
 
 // THIS SAMPLE IS NOT FUNCTIONAL WITH THIS HOST
-const mqtt = new MqttPubSub({ host: 'broker.emqx.io' }, {
-    username: username, 
-    password: password,
-})
+const mqtt = new MqttPubSub('broker.emqx.io', username, password)
 
 const topic = 'myTestTopic'
 const message = 'myTestMessage'

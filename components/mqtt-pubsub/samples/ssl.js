@@ -1,6 +1,6 @@
 const MqttPubSub = require('../index.js')
 
-const mqtt = new MqttPubSub({ ssl: true, host: 'broker.emqx.io' })
+const mqtt = new MqttPubSub(host = 'broker.emqx.io', ssl = true)
 
 const topic = 'myTestTopic'
 const message = 'myTestMessage'

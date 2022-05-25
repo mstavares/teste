@@ -4,9 +4,7 @@ const fs = require('fs')
 const caFile = fs.readFile('./cacert.pem')
 
 // THIS SAMPLE IS NOT FUNCTIONAL WITH THIS HOST
-const mqtt = new MqttPubSub({ host: 'broker.emqx.io' }, {
-    ca: [ caFile ]
-})
+const mqtt = new MqttPubSub(host = 'broker.emqx.io', ca = [ caFile ])
 
 const topic = 'myTestTopic'
 const message = 'myTestMessage'
