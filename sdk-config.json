@@ -27,7 +27,7 @@
     },
     "ENABLER_FRAMEWORK": {
       "ENABLERREGISTRY": "http://reverse-proxy/efregistry",
-      "REQUESTHANDLER": "http://reverse-proxy/efrequesthandler",
+      "REQUESTHANDLER": "http://reverse-proxy/efrequesthandler"
     }
   },
   "DATASPINE": {
