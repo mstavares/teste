@@ -1,6 +1,3 @@
-
-
-
 let tables = require('./src/api/TablesApi')
 
 
